@@ -1,0 +1,52 @@
+let mapleader=","
+" 行号和相对行号
+set number relativenumber
+set clipboard+=unnamed
+set virtualedit=onemore
+set incsearch
+set ideamarks
+set showmode
+set NERDTree
+set surround
+set visualbell
+set easymotion
+map s <Plug>(easymotion-s)
+nnoremap <Space>sv :source ~/.ideavimrc<cr>
+
+"快速进入某个文件
+nnoremap <C-f> :action GotoFile<CR>
+"最近打开的文件，要适配输入模式
+nnoremap <C-e> :action RecentFiles<CR>
+"快速进入class
+nnoremap gc :action GotoClass<CR>
+"快速进入某个实现
+nnoremap gi :action GotoImplementation<CR>
+"快速进入定义
+nnoremap gd :action GotToDeclaration<CR>
+
+"全局快速搜索
+nnoremap <C-s> :action SearchEverywhere<CR>
+nnoremap <C-n> :action ActivateProjectToolWindow<CR>
+"全屏
+nnoremap <Leader>z :action ToggleZenMode<CR>
+"打开文件的结构
+nnoremap <Leader>s :action FileStructurePopup<CR>
+"隐藏所有的窗口
+nnoremap <leader>h :action HideAllWindows<CR>
+
+"关闭当前内容
+nnoremap <leader>q :action CloseContent<:CR>
+
+" 快速返回
+nnoremap gb :action Back<CR>
+" 快速返回上一个tab
+nnoremap bb :action PreviousTab<CR>
+" 快速跳转一个tab
+nnoremap bn :action NextTab<CR>
+
+" 打开run菜单
+nnoremap <leader>ri :action Run<CR>
+" 打开debug菜单
+nnoremap <leader>di :action Debug<CR>
+" 关闭
+nnoremap <leader>si :action Stop<CR>
