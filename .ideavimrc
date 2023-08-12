@@ -1,3 +1,6 @@
+" 加载配置文件
+" nnoremap <Space>sv :source ~/.ideavimrc<cr>
+
 let mapleader=" "
 set number relativenumber
 set clipboard=unnamed
@@ -10,8 +13,14 @@ set surround
 set wildmenu
 set visualbell
 set easymotion
-map s <Plug>(easymotion-s)
-nnoremap <Space>sv :source ~/.ideavimrc<cr>
+set sneak
+" nmap <Leader>f <Plug>(easymotion-overwin-f)
+" map  <Leader>j <Plug>(easymotion-jumptoanywhere)
+" 快速跳转到行、单词(词的密度太大了，应该用搜索比较好)
+" map <Leader>l <Plug>(easymotion-lineanywhere)
+" map <Leader>w <Plug>(easymotion-iskeyword-w)    
+" 搜索（但是搜索内容没有显示在状态栏）
+map ff <Plug>(easymotion-bd-f)
 
 " 全局快速搜索
 nnoremap sf :action SearchEverywhere<CR>
@@ -25,10 +34,10 @@ nnoremap gi :action GotoImplementation<CR>
 " 查看使用者
 nnoremap fu :action FindUsages<CR>
 nnoremap su :action ShowUsages<CR>
-" 打开文件的类结构
-nnoremap <Leader>s :action FileStructurePopup<CR>
-" 最后修改的地方
-nnoremap <Leader>l :action JumpToLastChange<CR>
+" 展示类结构(structure)
+nnoremap st :action FileStructurePopup<CR>
+" 最后修改的地方(last change)
+nnoremap lc :action JumpToLastChange<CR>
 " 快速返回
 nnoremap gb :action Back<CR>
 " 快速返回上一个tab
@@ -51,5 +60,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <C-f> :action ReformatCode<CR>
+
+" 格式化代码
+nnoremap <Leader>fm :action ReformatCode<CR>
+" 关闭页面
 nnoremap <leader>x :action CloseEditor<CR>
+" 新建文件
+nnoremap <leader>nf :action NewFile<CR>
