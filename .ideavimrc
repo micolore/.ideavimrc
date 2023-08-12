@@ -14,6 +14,10 @@ set wildmenu
 set visualbell
 set easymotion
 set sneak
+
+
+" easy-motion 
+" 说明文档: https://github.com/easymotion/vim-easymotion/blob/master/doc/easymotion.txt#L86
 " nmap <Leader>f <Plug>(easymotion-overwin-f)
 " map  <Leader>j <Plug>(easymotion-jumptoanywhere)
 " 快速跳转到行、单词(词的密度太大了，应该用搜索比较好)
@@ -21,6 +25,7 @@ set sneak
 " map <Leader>w <Plug>(easymotion-iskeyword-w)    
 " 搜索（但是搜索内容没有显示在状态栏）
 map ff <Plug>(easymotion-bd-f)
+
 
 " 全局快速搜索
 nnoremap sf :action SearchEverywhere<CR>
@@ -40,9 +45,13 @@ nnoremap st :action FileStructurePopup<CR>
 nnoremap lc :action JumpToLastChange<CR>
 " 快速返回
 nnoremap gb :action Back<CR>
-" 快速返回上一个tab
+nnoremap gf :action Forward<CR>
+" tabs switch
+nnoremap fb :action Switcher<CR>
+
+" 上一个tab
 nnoremap bb :action PreviousTab<CR>
-" 快速跳转一个tab
+" 下一个tab
 nnoremap bn :action NextTab<CR>
 
 " 按单词跳转
