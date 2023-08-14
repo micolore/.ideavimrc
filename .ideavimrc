@@ -17,7 +17,6 @@ set sneak
 
 
 " easy-motion 
-" 说明文档: https://github.com/easymotion/vim-easymotion/blob/master/doc/easymotion.txt#L86
 " nmap <Leader>f <Plug>(easymotion-overwin-f)
 " map  <Leader>j <Plug>(easymotion-jumptoanywhere)
 " 快速跳转到行、单词(词的密度太大了，应该用搜索比较好)
