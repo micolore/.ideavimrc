@@ -15,7 +15,6 @@ set visualbell
 set easymotion
 set sneak
 
-
 " easy-motion 
 " nmap <Leader>f <Plug>(easymotion-overwin-f)
 " map  <Leader>j <Plug>(easymotion-jumptoanywhere)
@@ -24,7 +23,6 @@ set sneak
 " map <Leader>w <Plug>(easymotion-iskeyword-w)    
 " 搜索（但是搜索内容没有显示在状态栏）
 map ff <Plug>(easymotion-bd-f)
-
 
 " 全局快速搜索
 nnoremap sf :action SearchEverywhere<CR>
@@ -75,3 +73,9 @@ nnoremap <Leader>fm :action ReformatCode<CR>
 nnoremap <leader>x :action CloseEditor<CR>
 " 新建文件
 nnoremap <leader>nf :action NewFile<CR>
+
+" 快速进入当前类的父类，不需要选中类名。
+nnoremap sc :action GotoSuperMethod<CR>
+
+" 需求
+" 1、不需要进入某个类就可以使用搜索相关的功能，目前是必须要进入一个类才能使用find。
