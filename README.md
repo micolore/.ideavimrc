@@ -5,4 +5,5 @@
 
 ## 文档参考
 
-1、[easymotion](https://github.com/easymotion/vim-easymotion/blob/master/doc/easymotion.txt)
+1、[easymotion 文档](https://github.com/easymotion/vim-easymotion/blob/master/doc/easymotion.txt)  
+2、查看 idea提供的所有命令， :actionlist。
