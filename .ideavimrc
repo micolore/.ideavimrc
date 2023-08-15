@@ -10,12 +10,23 @@ set ideamarks
 set showmode
 set NERDTree
 set surround
+set showcmd
+set cursorline
 set wildmenu
 set visualbell
 set easymotion
 set sneak
+highlight LeaderTab guifg=#666666
+
+" 模拟 Emacs 键绑定
+" Move
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
 
 " easy-motion 
+" 说明文档: https://github.com/easymotion/vim-easymotion/blob/master/doc/easymotion.txt#L86
 " nmap <Leader>f <Plug>(easymotion-overwin-f)
 " map  <Leader>j <Plug>(easymotion-jumptoanywhere)
 " 快速跳转到行、单词(词的密度太大了，应该用搜索比较好)
@@ -23,6 +34,7 @@ set sneak
 " map <Leader>w <Plug>(easymotion-iskeyword-w)    
 " 搜索（但是搜索内容没有显示在状态栏）
 map ff <Plug>(easymotion-bd-f)
+
 
 " 全局快速搜索
 nnoremap sf :action SearchEverywhere<CR>
@@ -74,8 +86,5 @@ nnoremap <leader>x :action CloseEditor<CR>
 " 新建文件
 nnoremap <leader>nf :action NewFile<CR>
 
-" 快速进入当前类的父类，不需要选中类名。
+" 1、快速进入当前类的父类，不需要选中类名。
 nnoremap sc :action GotoSuperMethod<CR>
-
-" 需求
-" 1、不需要进入某个类就可以使用搜索相关的功能，目前是必须要进入一个类才能使用find。
