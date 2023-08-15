@@ -8,6 +8,6 @@
 ## 文档参考
 
 1、[easymotion 文档](https://github.com/easymotion/vim-easymotion/blob/master/doc/easymotion.txt)  
-2、查看 idea提供的所有命令， :actionlist。注:r如果需要离线文件可以参考项目目录下面的action-list文件。 
-3、[Vim Cheat Sheet]h(ttps://vim.rtorr.com)
-4、[Vim documentation: map](https://vimdoc.sourceforge.net/htmldoc/map.html)
+2、查看 idea提供的所有命令， :actionlist。注:r如果需要离线文件可以参考项目目录下面的action-list文件。   
+3、[Vim Cheat Sheet]h(ttps://vim.rtorr.com)  
+4、[Vim documentation: map](https://vimdoc.sourceforge.net/htmldoc/map.html)  
