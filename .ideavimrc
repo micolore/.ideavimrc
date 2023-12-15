@@ -1,60 +1,60 @@
-" leader键还是单纯的组合键，哪个更好？
-
 " 加载配置文件
 " nnoremap <Space>sv :source ~/.ideavimrc<cr>
 
-let mapleader=" "
-" 自动居中
-set scrolloff=25
-set number relativenumber
-set clipboard=unnamed
-set virtualedit=onemore
+" -----插件--开始
 set incsearch
 set ideamarks
 set showmode
 set NERDTree
 set surround
 set showcmd
-" set cursorline
 set wildmenu
 set visualbell
 set easymotion
 set sneak
-" normal模式自动英文
+" -----插件--结束
+
+" leader映射键
+let mapleader=" "
+
+" -----默认配置--开始---
+set scrolloff=25 "自动居中
+set number relativenumber "相对行号
+set clipboard=unnamed
+set virtualedit=onemore
+ normal模式自动英文
 set keep-english-in-normal
 " highlight LeaderTab guifg=#666666
+" -----默认配置--结束---
 
-" 切换模式 使用率90%
-imap jj <Esc>
-imap jk <Esc>
-" 跳转到下一个错误或者警告,使用率70%
-nmap ge <action>(GotoNextError)
-"切换书签
-nmap ma <action>(ToggleBookmark)
+imap jj <Esc> "切换normal模式 使用率90%
 
-" 模拟 Emacs 键绑定
-" Move
+" class内常用操作
+nmap ge <action>(GotoNextError)  "跳转到下一个错误或者警告,使用率70%
+nmap ma <action>(ToggleBookmark) "切换书签
+
+" 模拟 Emacs 键绑定, 主要是使用emacs 输入模式 Move的方式
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
-" inoremap <C-p> <Up>
-" inoremap <C-n> <Down>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
-
+" inoremap <C-p> <Up>
+" inoremap <C-n> <Down>
 
 " easy-motion
 " 说明文档: https://github.com/easymotion/vim-easymotion/blob/master/doc/easymotion.txt#L86
 " nmap <Leader>f <Plug>(easymotion-overwin-f)
-" map  <Leader>j <Plug>(easymotion-jumptoanywhere)
-" 快速跳转到行、单词(词的密度太大了，应该用搜索比较好)
-" map <Leader>l <Plug>(easymotion-lineanywhere)
-" map <Leader>w <Plug>(easymotion-iskeyword-w)    
-" 搜索（但是搜索内容没有显示在状态栏）
-map ff <Plug>(easymotion-bd-f)
 
-" 全局快速搜索
-nnoremap sf :action SearchEverywhere<CR>
-nnoremap fp :action FindInPath<CR>
+" easyMotion 快速跳转，重点使用功能
+"map ff <Plug>(easymotion-bd-f) "搜索，然后输入想要搜索的字符。（还不够智能，搜索当前的字符）
+nmap ff <Plug>(easymotion-bd-w) "搜索，然后输入想要搜索的单词。（还不够智能，搜索当前的单词）
+"nmap <Leader>l <Plug>(easymotion-lineanywhere) "单行跳转，适合一行内容比较长的。（不是特别好用）
+" nmap <Leader>j <Plug>(easymotion-jumptoanywhere) "跳转任意位置(随机？）
+nmap ll <Plug>(easymotion-bd-jk) "快速跳到某一行，多行跳转。
+
+" idea 搜索
+nnoremap sf :action SearchEverywhere<CR> " 全局快速搜索
+nnoremap fp :action FindInPath<CR> "任意模式的搜索
 nnoremap fr :action ReplaceInPath<CR>
 nnoremap cr :action Replace<CR>  
 nnoremap <leader>[ <ESC>:action SelectInProjectView<CR>
@@ -70,12 +70,12 @@ nnoremap gi :action GotoImplementation<CR>
 " 查看使用者
 nnoremap fu :action FindUsages<CR>
 nnoremap su :action ShowUsages<CR>
-" 展示类结构(structure)
+" 展示当前类结构(structure)
 nnoremap st :action FileStructurePopup<CR>
 " 最后修改的地方(last change)
 nnoremap lc :action JumpToLastChange<CR>
-" 快速返回
-nnoremap gb :action Back<CR>
+
+nnoremap gb :action Back<CR> "快速返回上一个修改地方
 nnoremap gf :action Forward<CR>
 " tabs switch
 nnoremap fb :action Switcher<CR>
@@ -132,3 +132,6 @@ let g:WhichKeyDesc_NERDTreeOrNew_NewDir = "<leader>nd NewDir"
 nmap <leader>nd <action>(NewDir)
 " 复制class的路径
 noremap <Space>cr :action CopyReference<CR>
+" debug 执行表达式
+noremap <Space>ee :action EvaluateExpression<CR>
+    
