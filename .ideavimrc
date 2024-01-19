@@ -14,23 +14,29 @@ set easymotion
 set sneak
 " -----插件--结束
 
+set which-key
+set notimeout
+
 " leader映射键
 let mapleader=" "
+" idea设置菜单
+" noremap <Leader>ss  :action ShowSettings<CR>
 
 " -----默认配置--开始---
 set scrolloff=25 "自动居中
 set number relativenumber "相对行号
 set clipboard=unnamed
 set virtualedit=onemore
- normal模式自动英文
+" normal模式自动英文
 set keep-english-in-normal
 " highlight LeaderTab guifg=#666666
 " -----默认配置--结束---
 
-imap jj <Esc> "切换normal模式 使用率90%
+" 切换normal模式 使用率90%
+inoremap jj <Esc> 
 
 " class内常用操作
-nmap ge <action>(GotoNextError)  "跳转到下一个错误或者警告,使用率70%
+nmap <Space><CR> :action GotoNextError<CR>  "跳转到下一个错误或者警告,使用率70%
 nmap ma <action>(ToggleBookmark) "切换书签
 
 " 模拟 Emacs 键绑定, 主要是使用emacs 输入模式 Move的方式
@@ -38,100 +44,76 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
-" inoremap <C-p> <Up>
-" inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+" 交互两行代码
+nnoremap <C-j> :m +1<CR>
+nnoremap <C-k> :m -2<CR>
+inoremap <C-j> <Esc> :m +1<CR>gi
+inoremap <C-k> <Esc> :m -2<CR>gi
 
-" easy-motion
+" easy-motion 快速跳转，重点使用功能，不支持非递归映射(nnoremap)
 " 说明文档: https://github.com/easymotion/vim-easymotion/blob/master/doc/easymotion.txt#L86
-" nmap <Leader>f <Plug>(easymotion-overwin-f)
-
-" easyMotion 快速跳转，重点使用功能
-"map ff <Plug>(easymotion-bd-f) "搜索，然后输入想要搜索的字符。（还不够智能，搜索当前的字符）
-nmap ff <Plug>(easymotion-bd-w) "搜索，然后输入想要搜索的单词。（还不够智能，搜索当前的单词）
-"nmap <Leader>l <Plug>(easymotion-lineanywhere) "单行跳转，适合一行内容比较长的。（不是特别好用）
-" nmap <Leader>j <Plug>(easymotion-jumptoanywhere) "跳转任意位置(随机？）
-nmap ll <Plug>(easymotion-bd-jk) "快速跳到某一行，多行跳转。
+" 搜索指定字符
+map ss <Plug>(easymotion-bd-f)
+" 全局搜索
+map ff <Plug>(easymotion-bd-w)
+" 多行跳转
+map <c-l> <Plug>(easymotion-bd-jk)
 
 " idea 搜索
-nnoremap sf :action SearchEverywhere<CR> " 全局快速搜索
-nnoremap fp :action FindInPath<CR> "任意模式的搜索
-nnoremap fr :action ReplaceInPath<CR>
-nnoremap cr :action Replace<CR>  
-nnoremap <leader>[ <ESC>:action SelectInProjectView<CR>
-nnoremap <leader>e <ESC>:action ShowErrorDescription<CR>
-nnoremap <leader>i <ESC>:action Maven.Reimport<CR>
+" 全局快速搜索
+" nnoremap sc :action SearchEverywhere<CR>
+" 任意模式的搜索
+nnoremap <C-g> :action FindInPath<CR>
+" nnoremap fr :action ReplaceInPath<CR>
+nnoremap <C-r> :action Replace<CR>
+" nnoremap <leader>[ <ESC>:action SelectInProjectView<CR>
+" nnoremap <leader>e <ESC>:action ShowErrorDescription<CR>
+" nnoremap <leader>i <ESC>:action Maven.Reimport<CR>
 
-" 最近打开的文件，要适配输入模式
-nnoremap <Leader>e :action RecentFiles<CR>
-" 快速进入class
+nnoremap <C-e> :action RecentFiles<CR>
 " nnoremap gc :action GotoClass<CR>
-" 快速进入某个实现
-nnoremap gi :action GotoImplementation<CR>
-" 查看使用者
+nnoremap ji :action GotoImplementation<CR>
 nnoremap fu :action FindUsages<CR>
 nnoremap su :action ShowUsages<CR>
-" 展示当前类结构(structure)
 nnoremap st :action FileStructurePopup<CR>
-" 最后修改的地方(last change)
-nnoremap lc :action JumpToLastChange<CR>
-
-nnoremap gb :action Back<CR> "快速返回上一个修改地方
+nnoremap gb :action Back<CR>
 nnoremap gf :action Forward<CR>
+
 " tabs switch
 nnoremap fb :action Switcher<CR>
-
 " 上一个tab
 nnoremap bb :action PreviousTab<CR>
 " 下一个tab
 nnoremap bn :action NextTab<CR>
+" 切换下一个项目
+noremap ,m :action NextProjectWindow<CR>
 
-" 按单词跳转
-map w ]w
-map <C-s> :w<CR>
-    
-" 快速激活左侧项目窗口
-" nnoremap <C-n> :action ActivateProjectToolWindow<CR>
-" 全屏
-nnoremap <Leader>z :action ToggleZenMode<CR>
-" 隐藏所有的窗口
-nnoremap <Leader>h :action HideAllWindows<CR>
-" service open window
-nnoremap <Leader>s :action ActivateServicesToolWindow<CR>
-" 不能关闭 services windows(要切换到FileView界面)
-nnoremap <C-c> :action HideAllWindows<CR>
+nnoremap <Leader>z :action ToggleZenMode<CR> " 全屏
+nnoremap <Leader>h :action HideAllWindows<CR> " 隐藏所有的窗口
+nnoremap <Leader>c :action HideActiveWindow<CR> " 隐藏当前激活的窗口
+" nnoremap <C-n> :action ActivateProjectToolWindow<CR> " 快速激活左侧项目窗口
+" nnoremap <Leader>s :action ActivateServicesToolWindow<CR> " service open window
+" nnoremap <C-c> :action HideAllWindows<CR> " 不能关闭 services windows(要切换到FileView界面)
 
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
+" 窗口切换
+nnoremap ,h <C-w>h
+nnoremap ,l <C-w>l
+nnoremap ,l <C-w>j
+nnoremap ,k <C-w>k
 
-" 格式化代码
-nnoremap <Leader>fm :action ReformatCode<CR>
-" 关闭页面
-nnoremap <leader>x :action CloseEditor<CR>
-
-" 需求
-" 1、不需要进入某个类就可以使用搜索相关的功能，目前是必须要进入一个类才能使用find。
-" 2、快速进入当前类的父类，不需要选中类名。
+nnoremap <Leader>fm :action ReformatCode<CR> " 格式化代码
+nnoremap <leader>x :action CloseEditor<CR> " 关闭页面
 nnoremap sc :action GotoSuperMethod<CR>
 
-" 按下 <leader>nn 将使焦点转移到 NERDTree 窗口
+" 按下nn 将使焦点转移NERDTree窗口
 nnoremap <leader>nn :NERDTreeFocus<CR>
-let g:WhichKeyDesc_NERDTreeOrNo_NERDTreeFocus = "<leader>nn NERDTreeFocus"
 " 按下 <C-n> 将打开 NERDTree 文件资源管理器
 nnoremap <C-n> :NERDTree<CR>
 " 按下 <C-t> 将切换 NERDTree 文件资源管理器的显示状态，即打开或关闭 NERDTree
 nnoremap <C-t> :NERDTreeToggle<CR>
-" 按下 <C-f> 将在 NERDTree 文件资源管理器中定位当前编辑文件所在的节点，并使其可见
-"nnoremap <C-f> :NERDTreeFind<CR>
-" 在当前目录新建类
-let g:WhichKeyDesc_NERDTreeOrNew_NewClass = "<leader>nc NewClass"
-nmap <leader>nc <action>(NewClass)
-" 在当前目录新建文件夹
-let g:WhichKeyDesc_NERDTreeOrNew_NewDir = "<leader>nd NewDir"
-nmap <leader>nd <action>(NewDir)
-" 复制class的路径
-noremap <Space>cr :action CopyReference<CR>
-" debug 执行表达式
-noremap <Space>ee :action EvaluateExpression<CR>
-    
+
+" 需求
+" 1、不需要进入某个类就可以使用搜索相关的功DTree 文件资源管理器才能使用find。
+" 2、快速进入当前类的父类，不需要选中类名。
