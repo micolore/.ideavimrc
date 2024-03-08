@@ -93,9 +93,6 @@ noremap ,m :action NextProjectWindow<CR>
 nnoremap <Leader>z :action ToggleZenMode<CR> " 全屏
 nnoremap <Leader>h :action HideAllWindows<CR> " 隐藏所有的窗口
 nnoremap <Leader>c :action HideActiveWindow<CR> " 隐藏当前激活的窗口
-" nnoremap <C-n> :action ActivateProjectToolWindow<CR> " 快速激活左侧项目窗口
-" nnoremap <Leader>s :action ActivateServicesToolWindow<CR> " service open window
-" nnoremap <C-c> :action HideAllWindows<CR> " 不能关闭 services windows(要切换到FileView界面)
 
 " 窗口切换
 nnoremap ,h <C-w>h
