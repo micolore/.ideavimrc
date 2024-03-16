@@ -92,7 +92,6 @@ noremap ,m :action NextProjectWindow<CR>
 
 nnoremap <Leader>z :action ToggleZenMode<CR> " 全屏
 nnoremap <Leader>h :action HideAllWindows<CR> " 隐藏所有的窗口
-nnoremap <Leader>c :action HideActiveWindow<CR> " 隐藏当前激活的窗口
 
 " 窗口切换
 nnoremap ,h <C-w>h
