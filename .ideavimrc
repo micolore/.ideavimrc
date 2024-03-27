@@ -1,5 +1,5 @@
 " 加载配置文件
-" nnoremap <Space>sv :source ~/.ideavimrc<cr>
+nnoremap <leader>sv :source ~/.ideavimrc<cr>
 
 " -----插件--开始
 set incsearch
@@ -12,6 +12,7 @@ set wildmenu
 set visualbell
 set easymotion
 set sneak
+set ideaput
 " -----插件--结束
 
 set which-key
@@ -19,8 +20,6 @@ set notimeout
 
 " leader映射键
 let mapleader=" "
-" idea设置菜单
-" noremap <Leader>ss  :action ShowSettings<CR>
 
 " -----默认配置--开始---
 set scrolloff=25 "自动居中
@@ -30,6 +29,7 @@ set virtualedit=onemore
 " normal模式自动英文
 set keep-english-in-normal
 " highlight LeaderTab guifg=#666666
+set clipboard+=unnamed
 " -----默认配置--结束---
 
 " 切换normal模式 使用率90%
@@ -59,18 +59,11 @@ map ss <Plug>(easymotion-bd-f)
 " 全局搜索
 map ff <Plug>(easymotion-bd-w)
 " 多行跳转
-map <c-l> <Plug>(easymotion-bd-jk)
+map ll <Plug>(easymotion-bd-jk)
 
 " idea 搜索
-" 全局快速搜索
-" nnoremap sc :action SearchEverywhere<CR>
-" 任意模式的搜索
 nnoremap <C-g> :action FindInPath<CR>
-" nnoremap fr :action ReplaceInPath<CR>
 nnoremap <C-r> :action Replace<CR>
-" nnoremap <leader>[ <ESC>:action SelectInProjectView<CR>
-" nnoremap <leader>e <ESC>:action ShowErrorDescription<CR>
-" nnoremap <leader>i <ESC>:action Maven.Reimport<CR>
 
 nnoremap <C-e> :action RecentFiles<CR>
 " nnoremap gc :action GotoClass<CR>
@@ -92,6 +85,7 @@ noremap ,m :action NextProjectWindow<CR>
 
 nnoremap <Leader>z :action ToggleZenMode<CR> " 全屏
 nnoremap <Leader>h :action HideAllWindows<CR> " 隐藏所有的窗口
+nnoremap <Leader>c :action HideActiveWindow<CR> " 隐藏当前激活的窗口
 
 " 窗口切换
 nnoremap ,h <C-w>h
@@ -110,6 +104,6 @@ nnoremap <C-n> :NERDTree<CR>
 " 按下 <C-t> 将切换 NERDTree 文件资源管理器的显示状态，即打开或关闭 NERDTree
 nnoremap <C-t> :NERDTreeToggle<CR>
 
-" 需求
-" 1、不需要进入某个类就可以使用搜索相关的功DTree 文件资源管理器才能使用find。
-" 2、快速进入当前类的父类，不需要选中类名。
+" Comment out the line
+nnoremap <leader>/ :action CommentByLineComment<cr>
+vmap <leader>/ :action CommentByLineComment<cr>
