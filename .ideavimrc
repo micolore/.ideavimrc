@@ -15,8 +15,13 @@ set sneak
 set ideaput
 " -----插件--结束
 
+set showmatch
 set which-key
 set notimeout
+set smartcase
+set ignorecase
+set showcmd
+set clipboard+=unnamed
 
 " leader映射键
 let mapleader=" "
@@ -84,8 +89,8 @@ nnoremap bn :action NextTab<CR>
 noremap ,m :action NextProjectWindow<CR>
 
 nnoremap <Leader>z :action ToggleZenMode<CR> " 全屏
-nnoremap <Leader>h :action HideAllWindows<CR> " 隐藏所有的窗口
-nnoremap <Leader>c :action HideActiveWindow<CR> " 隐藏当前激活的窗口
+nnoremap <leader>h :action HideAllWindows<CR> " 隐藏所有的窗口
+nnoremap <leader>c :action HideActiveWindow<CR> " 隐藏当前激活的窗口
 
 " 窗口切换
 nnoremap ,h <C-w>h
@@ -94,16 +99,13 @@ nnoremap ,l <C-w>j
 nnoremap ,k <C-w>k
 
 nnoremap <Leader>fm :action ReformatCode<CR> " 格式化代码
-nnoremap <leader>x :action CloseEditor<CR> " 关闭页面
-nnoremap sc :action GotoSuperMethod<CR>
 
-" 按下nn 将使焦点转移NERDTree窗口
-nnoremap <leader>nn :NERDTreeFocus<CR>
-" 按下 <C-n> 将打开 NERDTree 文件资源管理器
-nnoremap <C-n> :NERDTree<CR>
-" 按下 <C-t> 将切换 NERDTree 文件资源管理器的显示状态，即打开或关闭 NERDTree
-nnoremap <C-t> :NERDTreeToggle<CR>
+" NERDTree
+nnoremap <leader>o :NERDTreeFocus<CR>
+nnoremap <c-1> :NERDTreeToggle<CR>
+nnoremap <leader>tw :NERDTreeFind<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
 
-" Comment out the line
+" 注释
 nnoremap <leader>/ :action CommentByLineComment<cr>
 vmap <leader>/ :action CommentByLineComment<cr>
