@@ -109,3 +109,6 @@ nnoremap <leader>e :NERDTreeToggle<CR>
 " 注释
 nnoremap <leader>/ :action CommentByLineComment<cr>
 vmap <leader>/ :action CommentByLineComment<cr>
+
+nnoremap <Leader>o :<C-u>action RecentProjectListGroup<CR>
+
